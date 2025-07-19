@@ -24,19 +24,8 @@ const ProductoController = {
       console.error("ERROR EN create:", error);
       res.status(500).json({ message: 'Error al crear producto', error: error.message });
     }
+  }, // ¡Faltaba esta llave de cierre!
 
-<<<<<<< HEAD
-    const productoConCategorias = await Producto.findByPk(id, {
-      include: { model: Category, as: 'categories' }
-    })
-
-    res.json(productoConCategorias)
-  } catch (error) {
-    res.status(500).json({ message: 'Error al actualizar producto', error: error.message })
-  }
-}
-,
-=======
   async update(req, res) {
     const { id } = req.params;
     const { name, price, categoryIds } = req.body;
@@ -61,7 +50,6 @@ const ProductoController = {
       res.status(500).json({ message: 'Error al actualizar producto', error: error.message });
     }
   },
->>>>>>> develop
 
   async delete(req, res) {
     const { id } = req.params;
